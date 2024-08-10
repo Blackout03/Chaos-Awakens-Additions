@@ -8,7 +8,7 @@ modId="chaosadditions"
 version="${file.jarVersion}"
 displayName="Chaos Additions"
 updateJSONURL="https://raw.githubusercontent.com/Blackout03/Chaos-Additions/1.16.5-Forge/update.json"
-displayURL="https://blackout03.github.io/mods/chaos-additions.html"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/chaos-additions"
 authors="Blackout"
 description='''Some new Additions to Chaos Awakens!'''
 itemIcon="chaosadditions:ultimate_aiot"
@@ -30,13 +30,13 @@ side="BOTH"
 [[dependencies.chaosadditions]]
 modId="chaosawakens"
 mandatory=true
-versionRange="[0.11,)"
+versionRange="[0.12,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.chaosadditions]]
 modId="geckolib3"
 mandatory=true
-versionRange="[3.0.92,)"
+versionRange="[3.0.94,3.0.98)"
 ordering="AFTER"
 side="BOTH"

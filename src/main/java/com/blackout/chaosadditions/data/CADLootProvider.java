@@ -1,7 +1,7 @@
 package com.blackout.chaosadditions.data;
 
 import com.blackout.chaosadditions.ChaosAdditions;
-import com.blackout.chaosadditions.config.CADConfig;
+import com.blackout.chaosadditions.config.CADCommonConfig;
 import com.blackout.chaosadditions.loot.CADLootModifier;
 import com.blackout.chaosadditions.registry.CADGlobalLootModifier;
 import com.blackout.chaosadditions.registry.CADItems;
@@ -18,7 +18,7 @@ public class CADLootProvider extends GlobalLootModifierProvider {
 
 	@Override
 	protected void start() {
-		if (CADConfig.COMMON.enableSapphireShipwreckLootGen.get()) {
+		if (CADCommonConfig.COMMON.enableSapphireShipwreckLootGen.get()) {
 			add("sapphire_treasure", CADGlobalLootModifier.SAPPHIRE_TREASURE.get(), new CADLootModifier(
 					new ILootCondition[]{
 							LootTableIdCondition.builder(new ResourceLocation("chests/shipwreck_treasure")).build()

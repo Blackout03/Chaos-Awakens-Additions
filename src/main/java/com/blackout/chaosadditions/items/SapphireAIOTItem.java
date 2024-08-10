@@ -1,17 +1,22 @@
 package com.blackout.chaosadditions.items;
 
+import com.blackout.chaosadditions.util.CADEnumUtils;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeConfigSpec;
 
 import javax.annotation.Nonnull;
+import java.util.function.Supplier;
 
 public class SapphireAIOTItem extends AIOTItem {
-	public SapphireAIOTItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builderIn) {
-		super(tier, attackDamageIn, attackSpeedIn, builderIn);
+	public SapphireAIOTItem(CADEnumUtils.CADItemTier pTier, Supplier<ForgeConfigSpec.IntValue> configDmg, float pAttackSpeedModifier, Item.Properties properties) {
+		super(pTier, configDmg, pAttackSpeedModifier, properties);
 	}
 
 	@Override

@@ -22,11 +22,6 @@ public class CADRecipeGenerator extends RecipeProvider {
 		ChaosAdditions.LOGGER.info(output.asItem().getRegistryName());
 	}
 
-	private static void recipeSapphireAIOT(Consumer<IFinishedRecipe> recipeConsumer, IItemProvider output, IItemProvider input1, IItemProvider input2, IItemProvider input3, IItemProvider input4) {
-		ShapelessRecipeBuilder.shapeless(output).requires(input1).requires(input2).requires(input3).requires(input4).unlockedBy("has_tool1", has(input1)).unlockedBy("has_tool2", has(input2)).unlockedBy("has_tool3", has(input3)).unlockedBy("has_tool4", has(input4)).save(recipeConsumer, output.asItem().getRegistryName());
-		ChaosAdditions.LOGGER.info(output.asItem().getRegistryName());
-	}
-
 	@Override
 	protected void buildShapelessRecipes(Consumer<IFinishedRecipe> recipeConsumer) {
 		ShapedRecipeBuilder.shaped(CADBlocks.SAPPHIRE_BLOCK.get()).define('#', CADItems.SAPPHIRE.get()).pattern("###").pattern("###").pattern("###").unlockedBy("has_" + CADItems.SAPPHIRE.get().asItem(), has(CADItems.SAPPHIRE.get())).save(recipeConsumer, CADItems.SAPPHIRE.get().asItem().getRegistryName());
@@ -52,7 +47,7 @@ public class CADRecipeGenerator extends RecipeProvider {
 		recipeAIOT(recipeConsumer, CADItems.DIAMOND_AIOT.get(), Items.DIAMOND_PICKAXE, Items.DIAMOND_AXE, Items.DIAMOND_SHOVEL, Items.DIAMOND_HOE);
 		recipeAIOT(recipeConsumer, CADItems.NETHERITE_AIOT.get(), Items.NETHERITE_PICKAXE, Items.NETHERITE_AXE, Items.NETHERITE_SHOVEL, Items.NETHERITE_HOE);
 
-		recipeAIOT(recipeConsumer, CADItems.CRYSTAL_WOOD_AIOT.get(), CAItems.CRYSTAL_WOOD_PICKAXE.get(), CAItems.CRYSTAL_WOOD_AXE.get(), CAItems.CRYSTAL_WOOD_SHOVEL.get(), CAItems.CRYSTAL_WOOD_HOE.get());
+		recipeAIOT(recipeConsumer, CADItems.CRYSTALWOOD_AIOT.get(), CAItems.CRYSTALWOOD_PICKAXE.get(), CAItems.CRYSTALWOOD_AXE.get(), CAItems.CRYSTALWOOD_SHOVEL.get(), CAItems.CRYSTALWOOD_HOE.get());
 		recipeAIOT(recipeConsumer, CADItems.KYANITE_AIOT.get(), CAItems.KYANITE_PICKAXE.get(), CAItems.KYANITE_AXE.get(), CAItems.KYANITE_SHOVEL.get(), CAItems.KYANITE_HOE.get());
 		recipeAIOT(recipeConsumer, CADItems.PINK_TOURMALINE_AIOT.get(), CAItems.PINK_TOURMALINE_PICKAXE.get(), CAItems.PINK_TOURMALINE_AXE.get(), CAItems.PINK_TOURMALINE_SHOVEL.get(), CAItems.PINK_TOURMALINE_HOE.get());
 		recipeAIOT(recipeConsumer, CADItems.CATS_EYE_AIOT.get(), CAItems.CATS_EYE_PICKAXE.get(), CAItems.CATS_EYE_AXE.get(), CAItems.CATS_EYE_SHOVEL.get(), CAItems.CATS_EYE_HOE.get());
@@ -66,7 +61,7 @@ public class CADRecipeGenerator extends RecipeProvider {
 		recipeAIOT(recipeConsumer, CADItems.RUBY_AIOT.get(), CAItems.RUBY_PICKAXE.get(), CAItems.RUBY_AXE.get(), CAItems.RUBY_SHOVEL.get(), CAItems.RUBY_HOE.get());
 		recipeAIOT(recipeConsumer, CADItems.ULTIMATE_AIOT.get(), CAItems.ULTIMATE_PICKAXE.get(), CAItems.ULTIMATE_AXE.get(), CAItems.ULTIMATE_SHOVEL.get(), CAItems.ULTIMATE_HOE.get());
 
-		recipeSapphireAIOT(recipeConsumer, CADItems.SAPPHIRE_AIOT.get(), CADItems.SAPPHIRE_PICKAXE.get(), CADItems.SAPPHIRE_AXE.get(), CADItems.SAPPHIRE_SHOVEL.get(), CADItems.SAPPHIRE_HOE.get());
+		recipeAIOT(recipeConsumer, CADItems.SAPPHIRE_AIOT.get(), CADItems.SAPPHIRE_PICKAXE.get(), CADItems.SAPPHIRE_AXE.get(), CADItems.SAPPHIRE_SHOVEL.get(), CADItems.SAPPHIRE_HOE.get());
 		// Todo: Meganium AIOT when Pure Chaos Maven is Committed.
 	}
 }

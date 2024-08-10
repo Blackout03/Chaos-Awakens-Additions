@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "chaosawakens:crystalwood_pickaxe"
+    },
+    {
+      "item": "chaosawakens:crystalwood_axe"
+    },
+    {
+      "item": "chaosawakens:crystalwood_shovel"
+    },
+    {
+      "item": "chaosawakens:crystalwood_hoe"
+    }
+  ],
+  "result": {
+    "item": "chaosadditions:crystalwood_aiot"
+  }
+}

@@ -1,37 +1,54 @@
 package com.blackout.chaosadditions.items;
 
-import io.github.chaosawakens.api.IAutoEnchantable;
-import io.github.chaosawakens.common.config.CACommonConfig;
+import com.blackout.chaosadditions.util.CADEnumUtils;
+import io.github.chaosawakens.api.item.IAutoEnchantable;
+import io.github.chaosawakens.manager.CAConfigManager;
 import net.minecraft.enchantment.EnchantmentData;
-import net.minecraft.item.IItemTier;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeConfigSpec;
+
+import java.util.function.Supplier;
 
 public class EnchantedAIOTItem extends AIOTItem implements IAutoEnchantable {
-	private final EnchantmentData[] enchantments;
+	private final Supplier<EnchantmentData[]> enchantments;
 
-	public EnchantedAIOTItem(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builderIn, EnchantmentData[] enchantments) {
-		super(tier, attackDamageIn, attackSpeedIn, builderIn);
+	public EnchantedAIOTItem(CADEnumUtils.CADItemTier pTier, Supplier<ForgeConfigSpec.IntValue> configDmg, float pAttackSpeedModifier, Item.Properties properties, Supplier<EnchantmentData[]> enchantments) {
+		super(pTier, configDmg, pAttackSpeedModifier, properties);
 		this.enchantments = enchantments;
 	}
 
-	@Override
 	public void fillItemCategory(ItemGroup group, NonNullList<ItemStack> items) {
 		if (this.allowdedIn(group)) {
-			ItemStack stack = new ItemStack(this);
-			if (CACommonConfig.COMMON.enableAutoEnchanting.get()) for (EnchantmentData enchant : enchantments) stack.enchant(enchant.enchantment, enchant.level);
-			items.add(stack);
+			ItemStack swordStack = new ItemStack(this);
+
+			if (CAConfigManager.MAIN_COMMON.enableAutoEnchanting.get()) {
+				for (EnchantmentData curEnch : enchantments.get()) {
+					swordStack.enchant(curEnch.enchantment, curEnch.level);
+				}
+			}
+
+			items.add(swordStack);
 		}
 	}
 
-	@Override
-	public boolean isFoil(ItemStack stack) {
-		return CACommonConfig.COMMON.enableAutoEnchanting.get() || super.isFoil(stack);
+	public void onCraftedBy(ItemStack itemStack, World world, PlayerEntity playerEntity) {
+		if (CAConfigManager.MAIN_COMMON.enableAutoEnchanting.get()) {
+			for (EnchantmentData curEnch : enchantments.get()) {
+				if (curEnch.level == 0) itemStack.enchant(curEnch.enchantment, curEnch.level);
+			}
+		}
 	}
 
-	@Override
-	public EnchantmentData[] enchantments() {
-		return this.enchantments;
+	public boolean isFoil(ItemStack stack) {
+		return CAConfigManager.MAIN_COMMON.enableAutoEnchanting.get() && super.isFoil(stack) || super.isFoil(stack);
+	}
+
+	public EnchantmentData[] getEnchantments() {
+		return this.enchantments.get();
 	}
 }

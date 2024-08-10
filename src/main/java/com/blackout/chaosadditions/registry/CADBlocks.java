@@ -1,7 +1,7 @@
 package com.blackout.chaosadditions.registry;
 
 import com.blackout.chaosadditions.ChaosAdditions;
-import io.github.chaosawakens.common.blocks.CAFallingOreBlock;
+import io.github.chaosawakens.common.blocks.ore.CAFallingOreBlock;
 import io.github.chaosawakens.common.registry.CAItemGroups;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

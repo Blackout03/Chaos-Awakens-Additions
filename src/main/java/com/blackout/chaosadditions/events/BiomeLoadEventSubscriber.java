@@ -1,7 +1,8 @@
 package com.blackout.chaosadditions.events;
 
+import com.blackout.chaosadditions.config.CADCommonConfig;
 import com.blackout.chaosadditions.registry.CADConfiguredFeatures;
-import io.github.chaosawakens.common.config.CACommonConfig;
+import io.github.chaosawakens.manager.CAConfigManager;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -24,13 +25,13 @@ public class BiomeLoadEventSubscriber {
 			RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(event.getName(), "Who registered null name biome, naming criticism!"));
 
 			if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.OCEAN)) {
-				if (CACommonConfig.COMMON.enableOreGen.get())
+				if (CAConfigManager.MAIN_COMMON.enableOreGen.get())
 					addOceanOres(gen);
 			}
 		}
 
 		private static void addOceanOres(BiomeGenerationSettingsBuilder gen) {
-			gen.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, CADConfiguredFeatures.ORE_SAPPHIRE);
+			if (CADCommonConfig.COMMON.enableOreSapphireGen.get()) gen.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, CADConfiguredFeatures.ORE_SAPPHIRE);
 		}
 	}
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "chaosadditions:crystal_wood_aiot"
+      "chaosadditions:crystalwood_aiot"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "chaosawakens:crystal_wood_pickaxe"
+            "item": "chaosawakens:crystalwood_pickaxe"
           }
         ]
       }
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "item": "chaosawakens:crystal_wood_axe"
+            "item": "chaosawakens:crystalwood_axe"
           }
         ]
       }
@@ -31,7 +31,7 @@
       "conditions": {
         "items": [
           {
-            "item": "chaosawakens:crystal_wood_shovel"
+            "item": "chaosawakens:crystalwood_shovel"
           }
         ]
       }
@@ -41,7 +41,7 @@
       "conditions": {
         "items": [
           {
-            "item": "chaosawakens:crystal_wood_hoe"
+            "item": "chaosawakens:crystalwood_hoe"
           }
         ]
       }
@@ -49,7 +49,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "chaosadditions:crystal_wood_aiot"
+        "recipe": "chaosadditions:crystalwood_aiot"
       }
     }
   },

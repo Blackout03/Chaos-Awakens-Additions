@@ -2,7 +2,7 @@ package com.blackout.chaosadditions.data;
 
 import com.blackout.chaosadditions.ChaosAdditions;
 import com.blackout.chaosadditions.registry.CADItems;
-import io.github.chaosawakens.data.CATagProvider.CABlockTagProvider;
+import io.github.chaosawakens.data.provider.CATagProvider;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
@@ -19,7 +19,7 @@ public class CADTagProvider extends BlockTagsProvider {
 
 	public static class CADItemTagProvider extends ItemTagsProvider {
 		public CADItemTagProvider(DataGenerator gen, ExistingFileHelper existingFileHelper) {
-			super(gen, new CABlockTagProvider(gen, existingFileHelper), ChaosAdditions.MODID, existingFileHelper);
+			super(gen, new CATagProvider.CABlockTagProvider(gen, existingFileHelper), ChaosAdditions.MODID, existingFileHelper);
 		}
 
 		protected Path getPath(ResourceLocation resourceLocation) {

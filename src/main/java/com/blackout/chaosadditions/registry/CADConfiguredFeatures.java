@@ -1,7 +1,7 @@
 package com.blackout.chaosadditions.registry;
 
-import io.github.chaosawakens.api.FeatureWrapper;
-import io.github.chaosawakens.common.events.CommonSetupEvent;
+import io.github.chaosawakens.api.wrapper.FeatureWrapper;
+import io.github.chaosawakens.common.events.CACommonSetupEvents;
 import io.github.chaosawakens.common.worldgen.placement.OceanBedPlacement;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -17,7 +17,7 @@ public class CADConfiguredFeatures {
 	public static final ConfiguredFeature<?, ?> ORE_SAPPHIRE = register("ore_sapphire", Feature.ORE.configured(new OreFeatureConfig(RuleTests.BASE_OCEAN_FLOOR, States.SAPPHIRE_ORE, 4)).decorated(OceanBedPlacement.DEPTH_AVERAGE.configured(new DepthAverageConfig(30, 15))).squared().count(5));
 
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
-		CommonSetupEvent.configFeatures.add(new FeatureWrapper(key, configuredFeature));
+		CACommonSetupEvents.CONFIG_FEATURES.add(new FeatureWrapper(key, configuredFeature));
 		return configuredFeature;
 	}
 

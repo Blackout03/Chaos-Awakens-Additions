@@ -1,11 +1,10 @@
 package com.blackout.chaosadditions.registry;
 
 import com.blackout.chaosadditions.ChaosAdditions;
-import com.blackout.chaosadditions.config.CADConfig;
+import com.blackout.chaosadditions.config.CADServerConfig;
 import com.blackout.chaosadditions.items.*;
 import com.blackout.chaosadditions.util.CADEnumUtils;
 import io.github.chaosawakens.common.registry.CAItemGroups;
-import io.github.chaosawakens.common.util.EnumUtils;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -20,37 +19,37 @@ public class CADItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ChaosAdditions.MODID);
 	public static final DeferredRegister<Item> ITEMS_PURECHAOS = DeferredRegister.create(ForgeRegistries.ITEMS, ChaosAdditions.MODID);
 
-	public static final RegistryObject<AIOTItem> WOODEN_AIOT = ITEMS.register("wooden_aiot", () -> new AIOTItem(ItemTier.WOOD, CADConfig.COMMON.woodenAIOTDamage.get() - 1, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> STONE_AIOT = ITEMS.register("stone_aiot", () -> new AIOTItem(ItemTier.STONE, CADConfig.COMMON.stoneAIOTDamage.get() - 2, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> GOLDEN_AIOT = ITEMS.register("golden_aiot", () -> new AIOTItem(ItemTier.GOLD, CADConfig.COMMON.goldenAIOTDamage.get() - 1, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> IRON_AIOT = ITEMS.register("iron_aiot", () -> new AIOTItem(ItemTier.IRON, CADConfig.COMMON.ironAIOTDamage.get() - 3, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> DIAMOND_AIOT = ITEMS.register("diamond_aiot", () -> new AIOTItem(ItemTier.DIAMOND, CADConfig.COMMON.diamondAIOTDamage.get() - 4, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> NETHERITE_AIOT = ITEMS.register("netherite_aiot", () -> new AIOTItem(ItemTier.NETHERITE, CADConfig.COMMON.netheriteAIOTDamage.get() - 5, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> WOODEN_AIOT = ITEMS.register("wooden_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.WOOD, () -> CADServerConfig.SERVER.woodenAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> STONE_AIOT = ITEMS.register("stone_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.STONE, () -> CADServerConfig.SERVER.stoneAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> GOLDEN_AIOT = ITEMS.register("golden_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.GOLD, () -> CADServerConfig.SERVER.goldenAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> IRON_AIOT = ITEMS.register("iron_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.IRON, () -> CADServerConfig.SERVER.ironAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> DIAMOND_AIOT = ITEMS.register("diamond_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.DIAMOND, () -> CADServerConfig.SERVER.diamondAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> NETHERITE_AIOT = ITEMS.register("netherite_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.NETHERITE, () -> CADServerConfig.SERVER.netheriteAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
 
-	public static final RegistryObject<AIOTItem> CRYSTAL_WOOD_AIOT = ITEMS.register("crystal_wood_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_CRYSTAL_WOOD, CADConfig.COMMON.crystalWoodAIOTDamage.get() - 2, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> KYANITE_AIOT = ITEMS.register("kyanite_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_KYANITE, CADConfig.COMMON.kyaniteAIOTDamage.get() - 3, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> PINK_TOURMALINE_AIOT = ITEMS.register("pink_tourmaline_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_PINK_TOURMALINE, CADConfig.COMMON.pinkTourmalineAIOTDamage.get() - 9, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> CATS_EYE_AIOT = ITEMS.register("cats_eye_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_CATS_EYE, CADConfig.COMMON.catsEyeAIOTDamage.get() - 9, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> COPPER_AIOT = ITEMS.register("copper_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_COPPER, CADConfig.COMMON.copperAIOTDamage.get() - 3, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> TIN_AIOT = ITEMS.register("tin_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_TIN, CADConfig.COMMON.tinAIOTDamage.get() - 4, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> SILVER_AIOT = ITEMS.register("silver_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_SILVER, CADConfig.COMMON.silverAIOTDamage.get() - 5, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> PLATINUM_AIOT = ITEMS.register("platinum_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_PLATINUM, CADConfig.COMMON.platinumAIOTDamage.get() - 7, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> EMERALD_AIOT = ITEMS.register("emerald_aiot", () -> new EnchantedAIOTItem(EnumUtils.CAItemTier.TOOL_EMERALD, CADConfig.COMMON.emeraldAIOTDamage.get() - 7, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT),
-			new EnchantmentData[]{new EnchantmentData(Enchantments.SILK_TOUCH, 1)}));
-	public static final RegistryObject<AIOTItem> AMETHYST_AIOT = ITEMS.register("amethyst_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_AMETHYST, CADConfig.COMMON.amethystAIOTDamage.get() - 12, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> TIGERS_EYE_AIOT = ITEMS.register("tigers_eye_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_TIGERS_EYE, CADConfig.COMMON.tigersEyeAIOTDamage.get() - 9, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> RUBY_AIOT = ITEMS.register("ruby_aiot", () -> new AIOTItem(EnumUtils.CAItemTier.TOOL_RUBY, CADConfig.COMMON.rubyAIOTDamage.get() - 17, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> ULTIMATE_AIOT = ITEMS.register("ultimate_aiot", () -> new EnchantedAIOTItem(EnumUtils.CAItemTier.TOOL_ULTIMATE, CADConfig.COMMON.ultimateAIOTDamage.get() - 37, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT),
-			new EnchantmentData[]{new EnchantmentData(Enchantments.BLOCK_EFFICIENCY, 5), new EnchantmentData(Enchantments.BLOCK_FORTUNE, 5), new EnchantmentData(Enchantments.UNBREAKING, 2)}));
+	public static final RegistryObject<AIOTItem> CRYSTALWOOD_AIOT = ITEMS.register("crystalwood_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_CRYSTALWOOD, () -> CADServerConfig.SERVER.crystalWoodAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> KYANITE_AIOT = ITEMS.register("kyanite_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_KYANITE, () -> CADServerConfig.SERVER.kyaniteAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> PINK_TOURMALINE_AIOT = ITEMS.register("pink_tourmaline_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_PINK_TOURMALINE, () -> CADServerConfig.SERVER.pinkTourmalineAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> CATS_EYE_AIOT = ITEMS.register("cats_eye_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_CATS_EYE, () -> CADServerConfig.SERVER.catsEyeAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> COPPER_AIOT = ITEMS.register("copper_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_COPPER, () -> CADServerConfig.SERVER.copperAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> TIN_AIOT = ITEMS.register("tin_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_TIN, () -> CADServerConfig.SERVER.tinAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> SILVER_AIOT = ITEMS.register("silver_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_SILVER, () -> CADServerConfig.SERVER.silverAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> PLATINUM_AIOT = ITEMS.register("platinum_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_PLATINUM, () -> CADServerConfig.SERVER.platinumAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> EMERALD_AIOT = ITEMS.register("emerald_aiot", () -> new EnchantedAIOTItem(CADEnumUtils.CADItemTier.TOOL_EMERALD, () -> CADServerConfig.SERVER.emeraldAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT),
+			() -> new EnchantmentData[]{new EnchantmentData(Enchantments.SILK_TOUCH, 1)}));
+	public static final RegistryObject<AIOTItem> AMETHYST_AIOT = ITEMS.register("amethyst_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_AMETHYST, () -> CADServerConfig.SERVER.amethystAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> TIGERS_EYE_AIOT = ITEMS.register("tigers_eye_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_TIGERS_EYE, () -> CADServerConfig.SERVER.tigersEyeAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> RUBY_AIOT = ITEMS.register("ruby_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_RUBY, () -> CADServerConfig.SERVER.rubyAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> ULTIMATE_AIOT = ITEMS.register("ultimate_aiot", () -> new EnchantedAIOTItem(CADEnumUtils.CADItemTier.TOOL_ULTIMATE, () -> CADServerConfig.SERVER.ultimateAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT),
+			() -> new EnchantmentData[]{new EnchantmentData(Enchantments.BLOCK_EFFICIENCY, 5), new EnchantmentData(Enchantments.BLOCK_FORTUNE, 3), new EnchantmentData(Enchantments.UNBREAKING, 3)}));
 
 	public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", () -> new Item(new Item.Properties().tab(CAItemGroups.ITEMS)));
 
-	public static final RegistryObject<SwordItem> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword", () -> new SapphireSwordItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, CADConfig.COMMON.sapphireSwordDamage.get() - 15, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<PickaxeItem> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe", () -> new SapphirePickaxeItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, CADConfig.COMMON.sapphirePickaxeDamage.get() - 15, -2.8F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AxeItem> SAPPHIRE_AXE = ITEMS.register("sapphire_axe", () -> new SapphireAxeItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, CADConfig.COMMON.sapphireAxeDamage.get() - 15, -3F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<ShovelItem> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel", () -> new SapphireShovelItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, CADConfig.COMMON.sapphireShovelDamage.get() - 15, -3F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<HoeItem> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe", () -> new SapphireHoeItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, CADConfig.COMMON.sapphireHoeDamage.get() - 15, 0F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
-	public static final RegistryObject<AIOTItem> SAPPHIRE_AIOT = ITEMS.register("sapphire_aiot", () -> new SapphireAIOTItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, CADConfig.COMMON.sapphireAIOTDamage.get() - 15, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<SwordItem> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword", () -> new SapphireSwordItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, () -> CADServerConfig.SERVER.sapphireSwordDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<PickaxeItem> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe", () -> new SapphirePickaxeItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, () -> CADServerConfig.SERVER.sapphirePickaxeDamage, -2.8F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AxeItem> SAPPHIRE_AXE = ITEMS.register("sapphire_axe", () -> new SapphireAxeItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, () -> CADServerConfig.SERVER.sapphireAxeDamage, -3F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<ShovelItem> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel", () -> new SapphireShovelItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, () -> CADServerConfig.SERVER.sapphireShovelDamage, -3F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<HoeItem> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe", () -> new SapphireHoeItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, () -> CADServerConfig.SERVER.sapphireHoeDamage, 0F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> SAPPHIRE_AIOT = ITEMS.register("sapphire_aiot", () -> new SapphireAIOTItem(CADEnumUtils.CADItemTier.TOOL_SAPPHIRE, () -> CADServerConfig.SERVER.sapphireAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
 
 	public static final RegistryObject<ArmorItem> SAPPHIRE_HELMET = ITEMS.register("sapphire_helmet", () -> new SapphireArmorItem(CADEnumUtils.CADArmorMaterial.SAPPHIRE, EquipmentSlotType.HEAD, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
 	public static final RegistryObject<ArmorItem> SAPPHIRE_CHESTPLATE = ITEMS.register("sapphire_chestplate", () -> new SapphireArmorItem(CADEnumUtils.CADArmorMaterial.SAPPHIRE, EquipmentSlotType.CHEST, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
@@ -58,5 +57,6 @@ public class CADItems {
 	public static final RegistryObject<ArmorItem> SAPPHIRE_BOOTS = ITEMS.register("sapphire_boots", () -> new SapphireArmorItem(CADEnumUtils.CADArmorMaterial.SAPPHIRE, EquipmentSlotType.FEET, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
 
 	// Pure Chaos Support
-	public static final RegistryObject<AIOTItem> MEGANIUM_AIOT = ITEMS_PURECHAOS.register("meganium_aiot", () -> new AIOTItem(CADEnumUtils.CADItemTier.TOOL_MEGANIUM, CADConfig.COMMON.meganiumAIOTDamage.get() - 47, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT)));
+	public static final RegistryObject<AIOTItem> MEGANIUM_AIOT = ITEMS_PURECHAOS.register("meganium_aiot", () -> new EnchantedAIOTItem(CADEnumUtils.CADItemTier.TOOL_MEGANIUM, () -> CADServerConfig.SERVER.meganiumAIOTDamage, -2.4F, new Item.Properties().tab(CAItemGroups.EQUIPMENT),
+						() -> new EnchantmentData[]{new EnchantmentData(Enchantments.BLOCK_EFFICIENCY, 5), new EnchantmentData(Enchantments.BLOCK_FORTUNE, 3), new EnchantmentData(Enchantments.UNBREAKING, 3)}));
 }

@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.ModList;
 
 public class ToolUtil {
 	public static ActionResultType hoeUse(ItemUseContext ctx) {
@@ -22,7 +23,7 @@ public class ToolUtil {
 		BlockPos pos = ctx.getClickedPos();
 		Direction side = ctx.getClickedFace();
 
-		if (stack.getItem() == CADItems.ULTIMATE_AIOT.get()) {
+		if (stack.getItem() == CADItems.ULTIMATE_AIOT.get() || (ModList.get().isLoaded("purechaos") && stack.getItem() == CADItems.MEGANIUM_AIOT.get())) {
 			int hook = ForgeEventFactory.onHoeUse(ctx);
 			if (hook != 0) return hook > 0 ? ActionResultType.SUCCESS : ActionResultType.FAIL;
 			if (side != Direction.DOWN && world.isEmptyBlock(pos.above())) {
@@ -116,7 +117,7 @@ public class ToolUtil {
 		if (ctx.getClickedFace() == Direction.DOWN) {
 			return ActionResultType.PASS;
 		} else {
-			if (stack.getItem() == CADItems.ULTIMATE_AIOT.get()) {
+			if (stack.getItem() == CADItems.ULTIMATE_AIOT.get() || (ModList.get().isLoaded("purechaos") && stack.getItem() == CADItems.MEGANIUM_AIOT.get())) {
 				if (!world.isClientSide && playerentity != null) {
 					ctx.getItemInHand().hurtAndBreak(1, playerentity, (p_220041_1_) -> p_220041_1_.broadcastBreakEvent(ctx.getHand()));
 				}
@@ -187,7 +188,7 @@ public class ToolUtil {
 		if (ctx.getClickedFace() == Direction.DOWN) {
 			return ActionResultType.PASS;
 		} else {
-			if (stack.getItem() == CADItems.ULTIMATE_AIOT.get()) {
+			if (stack.getItem() == CADItems.ULTIMATE_AIOT.get() || (ModList.get().isLoaded("purechaos") && stack.getItem() == CADItems.MEGANIUM_AIOT.get())) {
 				if (!world.isClientSide && playerentity != null) {
 					ctx.getItemInHand().hurtAndBreak(1, playerentity, (p_220040_1_) -> p_220040_1_.broadcastBreakEvent(ctx.getHand()));
 				}

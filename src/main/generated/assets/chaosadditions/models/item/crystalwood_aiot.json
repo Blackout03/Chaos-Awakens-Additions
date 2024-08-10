@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "chaosadditions:item/crystal_wood_aiot"
+    "layer0": "chaosadditions:item/crystalwood_aiot"
   }
 }
